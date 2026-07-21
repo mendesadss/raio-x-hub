@@ -1,0 +1,174 @@
+<!doctype html><html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Central de Raio-X · @mendes.adss</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A0A0A; --card:#141414; --card2:#1a1a1a; --line:#262626;
+  --ink:#F4F4F1; --dim:#a8a8a3; --dim2:#6f6f6a;
+  --acc:#95BF47; --acc2:#b6e06a; --terra:#C1743A; --petro:#2a7d80;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:Sora,sans-serif;letter-spacing:-.02em;line-height:1.1}
+
+header{border-bottom:1px solid var(--line);padding:64px 0 44px;background:
+  radial-gradient(900px 320px at 15% -10%,rgba(149,191,71,.10),transparent 60%)}
+.tag{display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);
+  border:1px solid rgba(149,191,71,.35);border-radius:999px;padding:6px 13px;margin-bottom:20px}
+h1{font-size:clamp(30px,5vw,46px);font-weight:800}
+h1 em{color:var(--acc);font-style:normal}
+.sub{color:var(--dim);font-size:17px;max-width:680px;margin-top:16px}
+.hmeta{display:flex;gap:22px;flex-wrap:wrap;margin-top:24px;font-size:13px;color:var(--dim2)}
+.hmeta b{color:var(--ink)}
+
+.tools{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin:32px 0 6px}
+#q{flex:1;min-width:220px;background:var(--card);border:1px solid var(--line);color:var(--ink);
+  border-radius:11px;padding:13px 16px;font-size:15px;font-family:inherit;outline:none}
+#q:focus{border-color:var(--acc)}
+#q::placeholder{color:var(--dim2)}
+.count{font-size:13px;color:var(--dim2);white-space:nowrap}
+.count b{color:var(--acc);font-size:16px}
+
+section{padding:26px 0 70px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin-top:8px}
+.card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:22px 22px 20px;transition:.16s;position:relative;overflow:hidden}
+.card:hover{border-color:rgba(149,191,71,.55);transform:translateY(-3px);background:var(--card2)}
+.card:hover .go{color:var(--acc)}
+.card .top{display:flex;align-items:center;gap:9px;margin-bottom:12px;flex-wrap:wrap}
+.chip{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);
+  background:#000;border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+.chip.mkt{color:var(--acc2);border-color:rgba(149,191,71,.3)}
+.chip.new{color:#000;background:var(--acc);border-color:var(--acc);font-weight:700}
+.card h3{font-size:20px;font-weight:700;margin-bottom:9px}
+.card p{color:var(--dim);font-size:14px;flex:1}
+.card .foot{display:flex;justify-content:space-between;align-items:center;margin-top:18px;padding-top:15px;border-top:1px solid var(--line)}
+.card .lj{font-size:12.5px;color:var(--dim2)}
+.card .lj b{color:var(--ink)}
+.go{font-size:14px;font-weight:600;color:var(--dim);transition:.16s}
+.stretch{position:absolute;inset:0}
+
+.status{font-size:12.5px;color:var(--dim2);margin-top:22px;display:flex;align-items:center;gap:8px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--dim2);display:inline-block}
+.dot.on{background:var(--acc);box-shadow:0 0 0 3px rgba(149,191,71,.18)}
+.empty{color:var(--dim2);padding:40px 0;text-align:center}
+
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--dim2);font-size:13px}
+footer a{color:var(--dim)}
+footer a:hover{color:var(--acc)}
+</style></head><body>
+
+<header><div class="wrap">
+<div class="tag">@mendes.adss · Inteligência competitiva</div>
+<h1>Central de <em>Raio-X</em></h1>
+<p class="sub">Todas as pesquisas de nicho e loja publicadas, num lugar só. Clica e abre. Esta página se atualiza sozinha: todo novo raio-x que subir pro GitHub aparece aqui automaticamente.</p>
+<div class="hmeta">
+<span>Skill: <b>/raio-x</b></span>
+<span>Fonte de mídia: <b>Meta Ad Library</b></span>
+<span>Benchmark: <b>IRP Commerce</b></span>
+</div>
+</div></header>
+
+<div class="wrap">
+<div class="tools">
+<input id="q" type="search" placeholder="Filtrar por nicho, mercado ou palavra (ex: joia, calçado, US)..." autocomplete="off">
+<div class="count"><b id="n">0</b> pesquisas</div>
+</div>
+<div class="status"><span class="dot" id="dot"></span><span id="st">Carregando lista base...</span></div>
+</div>
+
+<section><div class="wrap">
+<div class="grid" id="grid"></div>
+<div class="empty" id="empty" style="display:none">Nenhuma pesquisa bate com esse filtro.</div>
+</div></section>
+
+<footer><div class="wrap">
+Central de Raio-X · <a href="https://github.com/mendesadss?tab=repositories&q=raio-x" target="_blank">repositórios no GitHub</a> · gerada e mantida pela skill /raio-x
+</div></footer>
+
+<script>
+// ---- Base curada (fallback instantâneo + rótulos bonitos) ----
+// Ordenada do mais recente pro mais antigo. Todo repo raio-x-* do GitHub
+// que não estiver aqui é adicionado automaticamente no fetch abaixo.
+const CURADO = [
+ {repo:"raio-x-pet-funcional", nicho:"Pet funcional", mercado:"US", lojas:"6 lojas",
+  hook:"Suplementos funcionais pra cães. O nicho #1 do ranking: molde vencedor decodificado (persona → advertorial → 1 hero líquido → BOGO)."},
+ {repo:"raio-x-purabrillo", nicho:"Vestido de ocasião", mercado:"US", lojas:"1 loja + 10 concorrentes",
+  hook:"Raio-x da Purabrillo + o nicho. Loja com casca boa e execução amadora; nicho grande, saturado no genérico, com brechas claras de recorte."},
+ {repo:"raio-x-solenne", nicho:"Joia tarnish-free / waterproof", mercado:"US", lojas:"8 lojas",
+  hook:"Solenne + o nicho de joia banhada que não escurece. 17,4 mil anúncios ativos. Produto e estética certos, falta plugar o gancho de dor."},
+ {repo:"raio-x-tight-space-tools", nicho:"Tight-Space Tools (chave de acesso)", mercado:"US + anglo", lojas:"6 lojas",
+  hook:"A chave que alcança o parafuso que o ratchet não pega. Separei o que é drop do que não é e mapeei a rede que escala o mercado."},
+ {repo:"raio-x-joias-religiosas", nicho:"Joias cristãs", mercado:"US", lojas:"7 lojas",
+  hook:"O nicho não está vazio, e o jogo é oferta. 20 anunciantes levantados, gate aplicado, 7 operações dissecadas."},
+ {repo:"raio-x-sleepwear", nicho:"Sleepwear feminino", mercado:"US", lojas:"10 lojas",
+  hook:"Quem escala vende problema resolvido, não beleza. 10 ângulos de busca, 10 anunciantes qualificados. A Serena está no único posicionamento que a matemática não sustenta."},
+ {repo:"raio-x-calcados-masculinos", nicho:"Calçado masculino de couro", mercado:"Big Five", lojas:"10 lojas",
+  hook:"Modelar o estilo Fiorinni (loafer, derby, chelsea) pra vender em dólar. Quem dá pra copiar, quem só dá pra observar, e onde está o dinheiro parado."},
+ {repo:"raio-x-calcados-ortopedicos-feminino", nicho:"Calçado ortopédico feminino", mercado:"US", lojas:"30 lojas",
+  hook:"O nicho mudou de eixo: não é mais ortopédico, é barefoot. 7 buscas, 128 anunciantes, 30 lojas por domínio + a rede de advertorial."},
+];
+const USER="mendesadss";
+const url=r=>`https://mendesadss.github.io/${r}/`;
+function slugToNome(s){return s.replace(/^raio-x-/,'').replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());}
+
+let DADOS = CURADO.map(x=>({...x, novo:false}));
+
+function render(list){
+ const g=document.getElementById('grid'), e=document.getElementById('empty');
+ g.innerHTML='';
+ if(!list.length){e.style.display='block';document.getElementById('n').textContent=0;return;}
+ e.style.display='none';
+ list.forEach(d=>{
+  const c=document.createElement('div');c.className='card';
+  c.innerHTML=`
+   <a class="stretch" href="${url(d.repo)}" target="_blank" aria-label="${d.nicho}"></a>
+   <div class="top">
+     <span class="chip mkt">${d.mercado||'—'}</span>
+     ${d.novo?'<span class="chip new">novo</span>':''}
+   </div>
+   <h3>${d.nicho}</h3>
+   <p>${d.hook||''}</p>
+   <div class="foot"><span class="lj">${d.lojas||''}</span><span class="go">abrir →</span></div>`;
+  g.appendChild(c);
+ });
+ document.getElementById('n').textContent=list.length;
+}
+function aplicaFiltro(){
+ const q=document.getElementById('q').value.toLowerCase().trim();
+ if(!q) return render(DADOS);
+ render(DADOS.filter(d=>(d.nicho+' '+d.mercado+' '+d.hook+' '+d.repo).toLowerCase().includes(q)));
+}
+document.getElementById('q').addEventListener('input',aplicaFiltro);
+render(DADOS);
+
+// ---- Auto-atualização: busca repos raio-x-* no GitHub e junta os novos ----
+(async()=>{
+ const st=document.getElementById('st'), dot=document.getElementById('dot');
+ try{
+  const r=await fetch(`https://api.github.com/users/${USER}/repos?per_page=100&sort=created&direction=desc`);
+  if(!r.ok) throw new Error('api '+r.status);
+  const repos=(await r.json())
+     .filter(x=>!x.private && x.name.startsWith('raio-x-') && x.name!=='raio-x-hub');
+  const conhecidos=new Set(CURADO.map(x=>x.repo));
+  const novos=repos.filter(x=>!conhecidos.has(x.name));
+  if(novos.length){
+   novos.forEach(x=>{
+    DADOS.unshift({repo:x.name, nicho:slugToNome(x.name), mercado:'', lojas:'',
+      hook:(x.description||'Raio-x publicado. Abra pra ver a análise completa.'), novo:true});
+   });
+   aplicaFiltro();
+  }
+  dot.className='dot on';
+  st.textContent=`Sincronizado com o GitHub · ${repos.length} raio-x publicados${novos.length?` · ${novos.length} novo(s) detectado(s)`:''}`;
+ }catch(err){
+  dot.className='dot on';
+  st.textContent='Mostrando a lista base (não deu pra sincronizar com o GitHub agora). Os links funcionam normalmente.';
+ }
+})();
+</script>
+</body></html>
