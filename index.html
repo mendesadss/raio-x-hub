@@ -44,8 +44,9 @@ section{padding:26px 0 70px}
   background:#000;border:1px solid var(--line);border-radius:999px;padding:4px 10px}
 .chip.mkt{color:var(--acc2);border-color:rgba(149,191,71,.3)}
 .chip.new{color:#000;background:var(--acc);border-color:var(--acc);font-weight:700}
-.card h3{font-size:20px;font-weight:700;margin-bottom:9px}
-.card p{color:var(--dim);font-size:14px;flex:1}
+.card h3{font-size:20px;font-weight:700;margin-bottom:6px}
+.card .hl{font-size:14px;font-weight:600;color:var(--acc2);line-height:1.35;margin-bottom:10px}
+.card p{color:var(--dim);font-size:13.5px;flex:1}
 .card .foot{display:flex;justify-content:space-between;align-items:center;margin-top:18px;padding-top:15px;border-top:1px solid var(--line)}
 .card .lj{font-size:12.5px;color:var(--dim2)}
 .card .lj b{color:var(--ink)}
@@ -95,48 +96,84 @@ Central de Raio-X · <a href="https://github.com/mendesadss?tab=repositories&q=r
 // Ordenada do mais recente pro mais antigo. Todo repo raio-x-* do GitHub
 // que não estiver aqui é adicionado automaticamente no fetch abaixo.
 const CURADO = [
- {repo:"raio-x-edc-masculino", nicho:"EDC masculino (lanterna tática, canivete, multitool, ferramenta de bolso)", mercado:"US", lojas:"7 lojas (8 ângulos, 100+ domínios de destino extraídos da biblioteca pública)",
-  hook:"Nicho ESCALANDO com uma tese limpa e um achado incômodo: das 7 operações medidas, as 3 que vendem SÓ desconto são exatamente as 3 de pior engajamento (North EDC 75% de bounce com 15 de 17 criativos de '47% OFF', Luxium 56% e caindo, Terozi 90% e 5 segundos de sessão). As 3 que vendem algo além de preço são as únicas MODELAR: EDCTitan (material/titânio no título, bounce 39%, 8,16 páginas/visita), FlareSyn (PROTEÇÃO em vez de gadget — 'Gear Up to Save Lives', criativo de 63 dias, o mais provado da amostra, bounce 29%) e Dinosaurized (rede de 5 personas com nome de pessoa alimentando advertorial, US$ 1,2 a 3,3 mi/mês). A BRECHA está escrita nos reviews públicos do próprio líder: 'Plastic handle. Flimsy sheath. Feels cheap.' e 'not stamped with the country of origin so I wonder if its a product of China' — 8,8% dos 205 reviews da North EDC são 1-2 estrelas, todos por qualidade, e ninguém no nicho responde isso. Ângulo dominante = PROVA DE MATERIAL contra 'mais um chinês de plástico'. Achado de método: a divergência entre os dois cálculos de gasto (via CPA% vs via CPC) vai de 0,8x na marca real a 11,8x na arbitragem pura — é o teste de defensabilidade, e o alerta pro mentorado é planejar mídia com 30% da receita, não os 7,3% do IRP. Mercado: EUA concentra 98,2% do volume anglófono; Europa continental é DESERTO (Alemanha 6, Itália 10) mas NÃO é brecha — o europeu já compra na loja americana em inglês (EDCTitan pega 12,9% do tráfego da Alemanha). Plano 'PROOFMARK' pronto: 'Every blade stamped. Every spec published.', 4 coleções, P&L nos dois cenários, mockups home/PDP com ficha técnica ACIMA do add-to-cart. Alerta legal declarado: lei de lâmina por estado + política de armas do Meta."},
- {repo:"raio-x-gestantes", nicho:"Gestante e pós-parto (o dinheiro está DEPOIS do parto)", mercado:"US", lojas:"5 lojas (10 ângulos medidos)",
-  hook:"O achado que inverte o nicho: quem procura 'produto de gestante' está olhando pro lado errado. O PÓS-parto move 295 anúncios ativos nos EUA contra 53 do pré-parto — 5,6x. A grávida compra conforto (compra adiável, fase que acaba); a mulher 3 meses depois do parto compra o corpo de volta, e isso é dor com urgência. Base clínica enorme: até 60% das puérperas ficam com diástase por semanas ou meses. O ângulo dominante é 'NÃO É GORDURA, É DIÁSTASE', e a prova de que o molde é público está aqui: Solniera e SayBeam rodam o MESMO advertorial frase por frase ('the crunches, the sit-ups, the classic planks are exactly the exercises that can make it worse'), trocando só quem assina — parteira numa, OB-GYN na outra. Nicho ESCALANDO: a BellyCozy entrou com 14 DIAS de loja e 146 anúncios ativos. MODELAR: Solniera (256 ativos, $29,95, scorecard 11/12, mecanismo 'as outras 23 horas'), Seryova (20 mil visitas/mês MEDIDAS, bounce 39,9%) e SayBeam (escada completa: e-book $9,90 + bonus card + BOGO). ⚠️ Esta pesquisa se corrige em público: o proxy de mídia dava $4.620/mês pra Seryova e o SimilarWeb depois mediu $38.636 — errou 8x, e isso está declarado na entrega. A matemática que decide tudo: com CPA de $30, vender peça avulsa a $39 dá PREJUÍZO de $5 por venda; a escada não é estética, é sobrevivência. Plano 'Reknit' com mecanismo próprio 'The 6 PM Test' (a barriga que muda de forma até o jantar — ninguém no nicho usa, e é a fala mais repetida das clientes)."},
- {repo:"raio-x-purabrillo-v2", nicho:"Vestido feminino de ocasião (a autópsia de uma loja sem mídia)", mercado:"US", lojas:"6 lojas",
-  hook:"A lição mais dura do acervo: a Purabrillo tem 10 MESES de domínio, catálogo caprichado, tema redesenhado, oferta montada (BOGO, frete grátis) — e ZERO anúncios no Meta em toda a história, confirmado por 3 caminhos. Melhor scorecard da amostra (10/12) e nenhum resultado, porque scorecard mede a facilidade da oportunidade, não a execução. Entre 21/07 e 24/07 ela apagou o catálogo (18→5 produtos) e trocou wedding guest por vacation, largando o único ângulo com data. E a Ever-Pretty faz 763,8K visitas/mês vendendo exatamente wedding guest. NENHUMA loja recebeu MODELAR: 2 não vendiam vestido (mala de viagem e óleo de rícino, marcadas FORA DO ESCOPO na auditoria), 2 são marcas e 1 tem 4 dias. Nicho SATURADO dominado por SHEIN/Temu; a brecha é a viagem marcada."},
- {repo:"raio-x-relogios-femininos", nicho:"Relógio feminino de luxo acessível", mercado:"Reino Unido + anglo", lojas:"6 lojas (43 buscas, 13 países, 895 domínios testados)",
-  hook:"Partiu da dvincy.com e achou a loja PARADA: 0 anúncios ativos, 76 no histórico, 16 dias sem anunciar. Virou AUTÓPSIA com os 3 erros que quebram um iniciante (trocou de marca no meio do teste — a página era 'Belamori' em BRL —, não tinha mecanismo, parou em 37 dias). O ângulo dela estava CERTO: 'the watch they'll ask about' é o mesmo 'Where did you get that?' da líder Nuamore (~US$ 171 mil/mês, tráfego DOBRADO em 3 meses). ⚠️ Esta pesquisa CORRIGE A SI MESMA em público: a 1ª varredura era rasa (8 rolagens/busca) e disse que havia UM dropshipper escalado. Refeita com 25 rolagens + ângulos de ocasião/avatar + 895 domínios testados um a um, apareceu a CADUCCI (339 ativos, 2.053 no histórico, 40,4 mil visitas/mês) — loja PURA de relógio, catálogo de 40 itens, ticket US$ 59,95-99,95, scorecard 11/12, e um molde MELHOR que a Nuamore pro iniciante. O achado mais copiável: a Caducci roda UM hook só em 339 anúncios ('Free Gift for the next 100 orders!') — brinde com escassez numérica em vez de desconto, com âncora de só 1,7x enquanto o nicho grita 50-80% off. Demanda ESTÁVEL (Trends 0,98): ganha ângulo, não budget. Mercado: Reino Unido. Margem de 40% até com CPA de £25. Plano 'VESSEN' com 4 coleções, P&L de 3 cenários e blueprint visual."},
- {repo:"raio-x-leah-lila", nicho:"Roupa para a mulher 50+ (o varejo não veste esse corpo)", mercado:"US", lojas:"5 lojas",
-  hook:"Nicho ESCALANDO com o melhor ÂNGULO já achado numa pesquisa: 'não é você, é a roupa'. A copy vencedora abre na cena do provador ('it was designed for someone half your age') e retira a culpa da cliente. Roda 100% em ESTÁTICO com copy longa — zero vídeo em 16 anúncios, barreira de produção quase nula. Mas atenção: a Leah & Lila NÃO passou no gate de prova de venda (15 dias de mídia, <100 impressões/anúncio, 7.482 reviews falsos sem app de review instalado) e o veredito dela foi corrigido de MODELAR para OBSERVAR. Quem tem prova é a Confête (27,8K visitas/mês com só 6 anúncios ativos, DROPSHIP DE MARCA + CONSTRUÍVEL). Corrige 4 erros da ficha anterior, entre eles o mercado: é US, não Europa (EUR era a moeda da conta, não do público). Plano 'Hollis & Rue' pronto pra iniciante, com P&L e blueprint."},
- {repo:"raio-x-joias-religiosas-v2", nicho:"Joias de ritual (batismo, comunhão, o par madrinha & afilhada)", mercado:"US", lojas:"7 lojas",
-  hook:"V2 do raio-x de joias religiosas, reposicionado: joia de RITUAL pronta pra presentear, SEM personalização. Mesmo dado de mercado, mas a oferta e a comunicação de presente foram afiadas (os 3 gatilhos: vínculo, momento, proteção) e o par madrinha & afilhada virou o motor de AOV. É a pesquisa que originou a Loja Amada."},
- {repo:"raio-x-desk-setup", nicho:"Desk setup (acessórios de mesa em madeira)", mercado:"US + Alemanha", lojas:"8 lojas (35 levantadas)",
-  hook:"Nicho ESCALANDO (demanda +1,63x nos EUA, +4,55x na Alemanha). Três andares: premium de madeira (Grovemade, Oakywood, Balolo — OBSERVAR), acessível replicável (Spacet, Raico, Minimal — MODELAR) e barato Amazon (Aothia). Achado de canal: o andar acessível se ganha no TikTok/Pinterest, não no Meta. Herói dominante = o 'desk shelf/cockpit' de madeira; ângulo = 'clean setup, clear mind'. Balolo é o rei do Meta (247 ativos ~US$0,42M/mês). Plano Woodmood pronto pra iniciante."},
- {repo:"raio-x-joias-masculinas", nicho:"Joia masculina de significado (fé / cruz / clover)", mercado:"US + anglo", lojas:"7 lojas",
-  hook:"A partir da Vorik (loja nova, operador BR vendendo em USD). O ângulo cross/faith explode em inglês (US 2.500 anúncios ativos) e é quase virgem em não-inglês (Alemanha 2, França 8) — jogo anglófono. FaithHeart é o molde MODELAR (390 ativos, ~$230K/mês); Statement Collective o benchmark de marca. A objeção que decide a venda é tarnish (não escurecer). Blueprint OATHE pronto pra montar."},
- {repo:"raio-x-circulacao-ems", nicho:"Circulação e inchaço nas pernas (device EMS)", mercado:"US + anglo", lojas:"5 lojas",
-  hook:"O nicho do PulseWell Foot Reviver: tapete EMS que 'acorda o segundo coração' (panturrilha) contra inchaço. Nicho ESCALANDO. Ornexis é o clone direto já rodando ~$57K/mês (MODELAR); Nooro/Megelin são marcas gigantes pra observar (quiz de diagnóstico, catálogo+desconto). Margem só fecha com a escada."},
- {repo:"raio-x-dor-joelho", nicho:"Dor no joelho (compressao)", mercado:"US + anglo", lojas:"5 lojas",
-  hook:"Mercado EMERGENTE: lojas dedicadas single-product com dado aberto, mas nenhuma com trafego provado. Mendable crava o avatar '45+'; Tystrap/Jestty mostram o MVP. Mapa pra entrar cedo, com mockups de home/PDP."},
- {repo:"raio-x-postura", nicho:"Postura e coluna (neck hump)", mercado:"US + UK", lojas:"4 lojas",
-  hook:"O corretor barato de US$15 morreu; o device de neck hump escala. Halipax (MODELAR) reposiciona brace→device pra matar a objeção 'vira muleta'. 3 fichas são lições (tráfego que despencou, reviews inflados, autópsia do commodity)."},
+ {repo:"raio-x-edc-masculino", nicho:"EDC masculino", mercado:"US", lojas:"7 lojas",
+  headline:"Prova de material contra 'mais um chinês de plástico'.",
+  hook:"Lanterna tática, canivete e multitool de bolso. Quem vende só desconto tem o pior engajamento; a brecha é ostentar material e ficha técnica. Molde MODELAR: EDCTitan e FlareSyn."},
+ {repo:"raio-x-gestantes", nicho:"Gestante e pós-parto", mercado:"US", lojas:"5 lojas",
+  headline:"O dinheiro está depois do parto, não antes.",
+  hook:"O pós-parto move 5,6x mais anúncios que o pré. Ângulo dominante: 'não é gordura, é diástase'. Só fecha na escada de oferta. Molde MODELAR: Solniera e SayBeam."},
+ {repo:"raio-x-purabrillo-v2", nicho:"Vestido de ocasião (autópsia)", mercado:"US", lojas:"6 lojas",
+  headline:"10 meses de loja, catálogo pronto e zero anúncio.",
+  hook:"A autópsia de uma loja com o melhor scorecard da amostra e nenhum resultado, porque nunca rodou mídia. Nicho saturado por SHEIN/Temu; a brecha é a viagem marcada. Nenhuma MODELAR."},
+ {repo:"raio-x-relogios-femininos", nicho:"Relógio feminino acessível", mercado:"Reino Unido", lojas:"6 lojas",
+  headline:"'Where did you get that?' vende mais que 50% off.",
+  hook:"Relógio feminino de luxo acessível. Ganha no ângulo de ocasião, não no budget: a líder roda um único hook de brinde com escassez. Demanda estável. Molde MODELAR: Caducci."},
+ {repo:"raio-x-leah-lila", nicho:"Roupa para mulher 50+", mercado:"US", lojas:"5 lojas",
+  headline:"'Não é você, é a roupa': tira a culpa da cliente.",
+  hook:"O varejo não veste esse corpo. Copy longa 100% em estático, produção quase nula. Nicho escalando. Molde com prova de venda: Confête (a Leah & Lila caiu pra OBSERVAR)."},
+ {repo:"raio-x-joias-religiosas-v2", nicho:"Joia de ritual", mercado:"US", lojas:"7 lojas",
+  headline:"Joia de batismo e comunhão pronta pra presentear.",
+  hook:"V2 reposicionada: joia de ritual sem personalização, vendida como presente pelos gatilhos de vínculo, momento e proteção. O par madrinha & afilhada puxa o AOV. Originou a Loja Amada."},
+ {repo:"raio-x-desk-setup", nicho:"Desk setup em madeira", mercado:"US + Alemanha", lojas:"8 lojas",
+  headline:"'Clean setup, clear mind' se ganha no TikTok, não no Meta.",
+  hook:"Acessórios de mesa em madeira; demanda subindo forte (4,55x na Alemanha). Herói é o desk shelf de madeira. Três andares de preço, o acessível é replicável. Plano Woodmood pronto."},
+ {repo:"raio-x-joias-masculinas", nicho:"Joia masculina de fé", mercado:"US + anglo", lojas:"7 lojas",
+  headline:"Cruz e clover explodem em inglês, virgem em outro idioma.",
+  hook:"Joia masculina de significado (fé, cruz, clover). Jogo anglófono: 2.500 anúncios ativos nos EUA. A objeção que decide é não escurecer (tarnish). Molde MODELAR: FaithHeart. Blueprint OATHE."},
+ {repo:"raio-x-circulacao-ems", nicho:"Circulação e inchaço (EMS)", mercado:"US + anglo", lojas:"5 lojas",
+  headline:"Device que 'acorda o segundo coração' contra inchaço.",
+  hook:"O nicho do PulseWell: tapete EMS pra circulação e inchaço na perna. Nicho escalando; margem só fecha na escada de oferta. Molde MODELAR: Ornexis. Nooro/Megelin como referência."},
+ {repo:"raio-x-dor-joelho", nicho:"Dor no joelho", mercado:"US + anglo", lojas:"5 lojas",
+  headline:"Mercado emergente, com dado aberto e sem tráfego provado.",
+  hook:"Joelheira de compressão. Lojas single-product com dado exposto, mas nenhuma escalada ainda: mapa pra entrar cedo. Avatar cravado em 45+. MVP visível em Tystrap e Jestty."},
+ {repo:"raio-x-postura", nicho:"Postura e coluna", mercado:"US + UK", lojas:"4 lojas",
+  headline:"O corretor barato morreu, o device de neck hump escala.",
+  hook:"Postura e corcunda de pescoço. Reposicionar de brace pra device mata a objeção 'vira muleta'. Três fichas são lições de erro. Molde MODELAR: Halipax."},
+ {repo:"raio-x-clogs-conforto", nicho:"Clog de conforto feminino", mercado:"US", lojas:"4 lojas",
+  headline:"'Walk on clouds' pra quem fica em pé o dia todo.",
+  hook:"Clog de EVA leve, ângulo de dor no pé mais desconto. Vogany, Northend, Project Cloud e Dritnow dissecadas. Plano calibrado pra iniciante."},
+ {repo:"raio-x-cozinha-sustentavel", nicho:"Cozinha sustentável", mercado:"US", lojas:"5 lojas",
+  headline:"Microplástico transforma eco-swap em produto de saúde.",
+  hook:"Utensílios de bambu e panela PFAS-free. O ângulo do microplástico solto no corte junta medo ambiental com medo familiar e cria urgência. Brecha defensável via dropship de marca."},
  {repo:"raio-x-led-beauty", nicho:"Beleza device (LED)", mercado:"US", lojas:"5 lojas",
-  hook:"Máscara de luz LED/laser como 'clínica em casa'. Molde ShipWill (Megelin ⭐ e Swirise MODELAR), demanda 5,7x em 12 meses. JOVS/INIA/Veauty como referência de marca e funil."},
- {repo:"raio-x-clogs-conforto", nicho:"Clogs de conforto feminino", mercado:"US", lojas:"4 lojas + semente",
-  hook:"Clog EVA 'walk on clouds' pra quem fica em pé o dia todo. Vogany, Northend, Project Cloud e Dritnow dissecadas; ângulo dominante (dor no pé + desconto) e plano calibrado pra iniciante."},
+  headline:"Máscara de LED vendida como 'clínica em casa'.",
+  hook:"Device de luz LED/laser pra pele. Demanda 5,7x em 12 meses. Molde MODELAR: ShipWill (Megelin e Swirise). JOVS, INIA e Veauty como referência de marca e funil."},
+ {repo:"raio-x-relogios", nicho:"Relógio masculino acessível", mercado:"US + UK", lojas:"8 lojas",
+  headline:"O modelo é validado; ganha quem roda 'a versão limpa'.",
+  hook:"Relógio masculino acessível (homage, fashion). A oferta BOGO já é padrão; a brecha é ocasião de presente e voz de marca própria. 8 operações dissecadas."},
+ {repo:"raio-x-roupas-de-linho", nicho:"Roupa de linho", mercado:"US", lojas:"8 lojas",
+  headline:"O feminino saturou; o dinheiro está no linho masculino.",
+  hook:"Roupa de linho premium. Ângulo dominante é premium sem markup exagerado (Lintico, Quince). Auditoria da MAREO (linho masculino) mais 8 concorrentes escalados."},
+ {repo:"raio-x-calcados-performance", nicho:"Tênis de conforto", mercado:"Reino Unido", lojas:"7 lojas",
+  headline:"Não é o tênis (~£16), é a persona e a história da dor.",
+  hook:"Tênis de conforto pra quem tem dor crônica e fica em pé o dia todo. Produto genérico; o diferencial é escolher um avatar específico e contar a dor antes de vender."},
+ {repo:"raio-x-oculos-de-sol", nicho:"Óculos de sol polarizado", mercado:"US", lojas:"5 lojas",
+  headline:"Um produto, um avatar, um benefício: o motorista.",
+  hook:"Óculos de sol polarizado. Mercado grande (7.793 anúncios ativos). O caminho mais simples pro iniciante é o avatar motorista: dor visceral, criativo trivial e evergreen."},
  {repo:"raio-x-pet-funcional", nicho:"Pet funcional", mercado:"US", lojas:"6 lojas",
-  hook:"Suplementos funcionais pra cães. O nicho #1 do ranking: molde vencedor decodificado (persona → advertorial → 1 hero líquido → BOGO)."},
- {repo:"raio-x-purabrillo", nicho:"Vestido de ocasião", mercado:"US", lojas:"1 loja + 10 concorrentes",
-  hook:"Raio-x da Purabrillo + o nicho. Loja com casca boa e execução amadora; nicho grande, saturado no genérico, com brechas claras de recorte."},
- {repo:"raio-x-solenne", nicho:"Joia tarnish-free / waterproof", mercado:"US", lojas:"8 lojas",
-  hook:"Solenne + o nicho de joia banhada que não escurece. 17,4 mil anúncios ativos. Produto e estética certos, falta plugar o gancho de dor."},
- {repo:"raio-x-tight-space-tools", nicho:"Tight-Space Tools (chave de acesso)", mercado:"US + anglo", lojas:"6 lojas",
-  hook:"A chave que alcança o parafuso que o ratchet não pega. Separei o que é drop do que não é e mapeei a rede que escala o mercado."},
- {repo:"raio-x-joias-religiosas", nicho:"Joias cristãs", mercado:"US", lojas:"7 lojas",
-  hook:"O nicho não está vazio, e o jogo é oferta. 20 anunciantes levantados, gate aplicado, 7 operações dissecadas."},
- {repo:"raio-x-sleepwear", nicho:"Sleepwear feminino", mercado:"US", lojas:"10 lojas · v3",
-  hook:"Quem escala vende problema resolvido, não beleza. Atualizado em 24/07/2026: o ângulo cooling migrou de pijama (24 anúncios) para roupa de cama (372). Lusome subiu ticket de $88 pra $328 no mesmo avatar; a Serena zerou a mídia."},
+  headline:"Suplemento pra cão: o molde vencedor decodificado.",
+  hook:"Suplementos funcionais pra cães, o nicho #1 do ranking. Persona, advertorial, um hero líquido e BOGO. Caminho de oferta mapeado ponta a ponta."},
+ {repo:"raio-x-purabrillo", nicho:"Vestido de ocasião", mercado:"US", lojas:"1 loja + 10 rivais",
+  headline:"Casca boa, execução amadora, brechas de recorte.",
+  hook:"Raio-x da Purabrillo mais o nicho de vestido de ocasião. Mercado grande e saturado no genérico, com brechas claras de recorte. Ver também a autópsia v2."},
+ {repo:"raio-x-solenne", nicho:"Joia que não escurece", mercado:"US", lojas:"8 lojas",
+  headline:"Estética certa, falta plugar o gancho de dor.",
+  hook:"Joia banhada tarnish-free e waterproof. 17,4 mil anúncios ativos no nicho. Produto e visual no ponto; o que falta é o gancho de dor (não escurecer)."},
+ {repo:"raio-x-tight-space-tools", nicho:"Chave de acesso (tight-space)", mercado:"US + anglo", lojas:"6 lojas",
+  headline:"A chave que alcança o parafuso que o ratchet não pega.",
+  hook:"Ferramenta pra espaço apertado. Separei o que é dropship do que não é e mapeei a rede que escala o mercado."},
+ {repo:"raio-x-joias-religiosas", nicho:"Joia cristã", mercado:"US", lojas:"7 lojas",
+  headline:"O nicho não está vazio: o jogo é oferta.",
+  hook:"Joia cristã. 20 anunciantes levantados, gate aplicado, 7 operações dissecadas. Reposicionado depois na v2 de joia de ritual."},
+ {repo:"raio-x-sleepwear", nicho:"Sleepwear feminino", mercado:"US", lojas:"10 lojas",
+  headline:"Quem escala vende problema resolvido, não beleza.",
+  hook:"Pijama e roupa de cama cooling (v3). O ângulo migrou de pijama pra cama: a Lusome subiu o ticket de $88 pra $328 no mesmo avatar. Atualizado em 24/07/2026."},
  {repo:"raio-x-calcados-masculinos", nicho:"Calçado masculino de couro", mercado:"Big Five", lojas:"10 lojas",
-  hook:"Modelar o estilo Fiorinni (loafer, derby, chelsea) pra vender em dólar. Quem dá pra copiar, quem só dá pra observar, e onde está o dinheiro parado."},
+  headline:"Modelar o estilo Fiorinni pra vender em dólar.",
+  hook:"Sapato de couro masculino (loafer, derby, chelsea). Quem dá pra copiar, quem só dá pra observar, e onde está o dinheiro parado."},
  {repo:"raio-x-calcados-ortopedicos-feminino", nicho:"Calçado ortopédico feminino", mercado:"US", lojas:"30 lojas",
-  hook:"O nicho mudou de eixo: não é mais ortopédico, é barefoot. 7 buscas, 128 anunciantes, 30 lojas por domínio + a rede de advertorial."},
+  headline:"O eixo mudou: não é ortopédico, é barefoot.",
+  hook:"Calçado ortopédico feminino. 7 buscas, 128 anunciantes, 30 lojas por domínio mais a rede de advertorial. O recorte que virou o nicho."},
 ];
 const USER="mendesadss";
 const url=r=>`https://mendesadss.github.io/${r}/`;
@@ -158,6 +195,7 @@ function render(list){
      ${d.novo?'<span class="chip new">novo</span>':''}
    </div>
    <h3>${d.nicho}</h3>
+   ${d.headline?`<div class="hl">${d.headline}</div>`:''}
    <p>${d.hook||''}</p>
    <div class="foot"><span class="lj">${d.lojas||''}</span><span class="go">abrir →</span></div>`;
   g.appendChild(c);
@@ -167,7 +205,7 @@ function render(list){
 function aplicaFiltro(){
  const q=document.getElementById('q').value.toLowerCase().trim();
  if(!q) return render(DADOS);
- render(DADOS.filter(d=>(d.nicho+' '+d.mercado+' '+d.hook+' '+d.repo).toLowerCase().includes(q)));
+ render(DADOS.filter(d=>(d.nicho+' '+d.mercado+' '+d.hook+' '+(d.headline||'')+' '+d.repo).toLowerCase().includes(q)));
 }
 document.getElementById('q').addEventListener('input',aplicaFiltro);
 render(DADOS);
@@ -179,7 +217,7 @@ render(DADOS);
   const r=await fetch(`https://api.github.com/users/${USER}/repos?per_page=100&sort=created&direction=desc`);
   if(!r.ok) throw new Error('api '+r.status);
   const repos=(await r.json())
-     .filter(x=>!x.private && x.name.startsWith('raio-x-') && x.name!=='raio-x-hub');
+     .filter(x=>!x.private && x.name.startsWith('raio-x-') && x.name!=='raio-x-hub' && x.name!=='raio-x-skill');
   const conhecidos=new Set(CURADO.map(x=>x.repo));
   const novos=repos.filter(x=>!conhecidos.has(x.name));
   if(novos.length){
