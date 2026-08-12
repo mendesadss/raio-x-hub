@@ -61,10 +61,79 @@ section{padding:26px 0 70px}
 footer{border-top:1px solid var(--line);padding:28px 0;color:var(--dim2);font-size:13px}
 footer a{color:var(--dim)}
 footer a:hover{color:var(--acc)}
+
+/* ---------- Tela de acesso ---------- */
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.sair{font-size:12.5px;color:var(--dim2);background:transparent;border:1px solid var(--line);border-radius:999px;
+  padding:7px 14px;cursor:pointer;font-family:inherit;transition:.16s}
+.sair:hover{color:var(--ink);border-color:var(--dim2)}
+
+#login{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px 20px;
+  background:radial-gradient(760px 340px at 50% -8%,rgba(149,191,71,.12),transparent 62%)}
+#login[hidden]{display:none}
+.box{width:100%;max-width:392px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:34px 30px 28px}
+.box .tag{margin-bottom:18px}
+.box h2{font-size:26px;font-weight:800}
+.box h2 em{color:var(--acc);font-style:normal}
+.box .desc{color:var(--dim);font-size:14.5px;margin-top:9px}
+.campo{margin-top:18px}
+.campo label{display:block;font-size:12.5px;color:var(--dim);margin-bottom:7px;font-weight:500}
+.campo input{width:100%;background:#0e0e0e;border:1px solid var(--line);color:var(--ink);border-radius:11px;
+  padding:13px 15px;font-size:15px;font-family:inherit;outline:none;transition:.16s}
+.campo input:focus{border-color:var(--acc)}
+.campo input::placeholder{color:var(--dim2)}
+.campo.erro input{border-color:#e0603c}
+.senha-wrap{position:relative}
+.senha-wrap input{padding-right:74px}
+.ver{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:transparent;border:0;color:var(--dim2);
+  font-size:12px;font-family:inherit;cursor:pointer;padding:8px 9px;border-radius:8px}
+.ver:hover{color:var(--acc2)}
+.entrar{width:100%;margin-top:22px;background:var(--acc);color:#0A0A0A;border:0;border-radius:11px;padding:14px;
+  font-family:Sora,sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:.16s}
+.entrar:hover:not(:disabled){background:var(--acc2)}
+.entrar:disabled{opacity:.5;cursor:not-allowed}
+.aviso{min-height:20px;margin-top:13px;font-size:13px;color:#e0603c;line-height:1.4}
+.aviso.ok{color:var(--acc2)}
+.ajuda{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:var(--dim2);line-height:1.5}
+@media(max-width:420px){.box{padding:28px 22px 24px}}
 </style></head><body>
 
+<!-- ================= Tela de acesso ================= -->
+<div id="login">
+ <form class="box" id="form-login" autocomplete="on">
+  <div class="tag">@mendes.adss · Acesso restrito</div>
+  <h2>Central de <em>Raio-X</em></h2>
+  <p class="desc">Área privada. Entre com o usuário e a senha pra ver as pesquisas.</p>
+
+  <div class="campo" id="c-user">
+   <label for="user">Usuário</label>
+   <input id="user" name="username" type="text" autocomplete="username" autocapitalize="off"
+          autocorrect="off" spellcheck="false" placeholder="seu usuário" required>
+  </div>
+
+  <div class="campo" id="c-pass">
+   <label for="pass">Senha</label>
+   <div class="senha-wrap">
+    <input id="pass" name="password" type="password" autocomplete="current-password" placeholder="sua senha" required>
+    <button class="ver" id="ver" type="button" aria-label="Mostrar senha">mostrar</button>
+   </div>
+  </div>
+
+  <button class="entrar" id="btn-entrar" type="submit">Entrar</button>
+  <div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+
+  <p class="ajuda">O acesso fica salvo neste navegador por 1 ano. Pra encerrar em outro computador, use o botão <b>Sair</b> no topo da página.</p>
+ </form>
+</div>
+
+<!-- ================= Conteúdo (só depois do login) ================= -->
+<div id="app" hidden>
+
 <header><div class="wrap">
-<div class="tag">@mendes.adss · Inteligência competitiva</div>
+<div class="topbar">
+<div class="tag" style="margin-bottom:0">@mendes.adss · Inteligência competitiva</div>
+<button class="sair" id="btn-sair" type="button">Sair</button>
+</div>
 <h1>Central de <em>Raio-X</em></h1>
 <p class="sub">Todas as pesquisas de nicho e loja publicadas, num lugar só. Clica e abre. Esta página se atualiza sozinha: todo novo raio-x que subir pro GitHub aparece aqui automaticamente.</p>
 <div class="hmeta">
@@ -90,6 +159,8 @@ footer a:hover{color:var(--acc)}
 <footer><div class="wrap">
 Central de Raio-X · <a href="https://github.com/mendesadss?tab=repositories&q=raio-x" target="_blank">repositórios no GitHub</a> · gerada e mantida pela skill /raio-x
 </div></footer>
+
+</div><!-- /#app -->
 
 <script>
 // ---- Base curada (fallback instantâneo + rótulos bonitos) ----
@@ -261,11 +332,15 @@ function aplicaFiltro(){
  if(!q) return render(DADOS);
  render(DADOS.filter(d=>(d.nicho+' '+d.mercado+' '+d.hook+' '+(d.headline||'')+' '+d.repo).toLowerCase().includes(q)));
 }
-document.getElementById('q').addEventListener('input',aplicaFiltro);
-render(DADOS);
+// Chamado só depois do login (não busca nada no GitHub antes de autenticar)
+function iniciarApp(){
+ document.getElementById('q').addEventListener('input',aplicaFiltro);
+ render(DADOS);
+ sincronizar();
+}
 
 // ---- Auto-atualização: busca repos raio-x-* no GitHub e junta os novos ----
-(async()=>{
+async function sincronizar(){
  const st=document.getElementById('st'), dot=document.getElementById('dot');
  try{
   const r=await fetch(`https://api.github.com/users/${USER}/repos?per_page=100&sort=created&direction=desc`);
@@ -287,6 +362,90 @@ render(DADOS);
   dot.className='dot on';
   st.textContent='Mostrando a lista base (não deu pra sincronizar com o GitHub agora). Os links funcionam normalmente.';
  }
-})();
+}
+
+/* ================= Acesso ==================================================
+   Página estática (GitHub Pages): a checagem roda no navegador. A senha não
+   fica no código, só o hash SHA-256 de "usuario:senha". Isso barra quem chega
+   pelo link, mas não é cofre: os raio-x continuam em repos públicos e quem
+   souber o endereço direto abre sem passar por aqui.
+   ========================================================================= */
+const HASH_OK="ac7cbe172dc1c15cb6730212eacbb19b4d949d20b9bde131149a6fe0ee278cde";
+const CHAVE="raiox-hub-acesso";
+const VALIDADE=365*24*60*60*1000; // 1 ano
+
+const $=id=>document.getElementById(id);
+const telaLogin=$('login'), telaApp=$('app'), aviso=$('aviso'), btn=$('btn-entrar');
+
+async function sha256(txt){
+ const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(txt));
+ return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+function sessaoValida(){
+ try{
+  const s=JSON.parse(localStorage.getItem(CHAVE)||'null');
+  return !!(s && s.h===HASH_OK && Date.now()-s.t<VALIDADE);
+ }catch(e){ return false; }
+}
+function abrirApp(){
+ telaLogin.hidden=true;
+ telaApp.hidden=false;
+ document.title='Central de Raio-X · @mendes.adss';
+ iniciarApp();
+}
+function erro(msg,campo){
+ aviso.classList.remove('ok');
+ aviso.textContent=msg;
+ $('c-user').classList.toggle('erro',campo==='user'||campo==='ambos');
+ $('c-pass').classList.toggle('erro',campo==='pass'||campo==='ambos');
+}
+
+// mostrar / ocultar senha
+$('ver').addEventListener('click',()=>{
+ const p=$('pass'), v=$('ver'), mostrando=p.type==='text';
+ p.type=mostrando?'password':'text';
+ v.textContent=mostrando?'mostrar':'ocultar';
+ v.setAttribute('aria-label',mostrando?'Mostrar senha':'Ocultar senha');
+ p.focus();
+});
+// digitou de novo, limpa o erro anterior
+['user','pass'].forEach(id=>$(id).addEventListener('input',()=>{
+ if(aviso.textContent){ aviso.textContent=''; $('c-user').classList.remove('erro'); $('c-pass').classList.remove('erro'); }
+}));
+
+$('form-login').addEventListener('submit',async e=>{
+ e.preventDefault();
+ const u=$('user').value.trim().toLowerCase(), p=$('pass').value;
+ if(!u||!p){ erro('Preencha usuário e senha pra entrar.', !u&&!p?'ambos':(!u?'user':'pass')); ($('user').value?$('pass'):$('user')).focus(); return; }
+ if(!window.crypto||!crypto.subtle){ erro('Este navegador não consegue validar o acesso. Abra a página por https://mendesadss.github.io/raio-x-hub/'); return; }
+
+ btn.disabled=true; btn.textContent='Entrando...';
+ aviso.classList.add('ok'); aviso.textContent='Conferindo o acesso...';
+ try{
+  const h=await sha256(u+':'+p);
+  if(h!==HASH_OK){
+   btn.disabled=false; btn.textContent='Entrar';
+   erro('Usuário ou senha incorretos. Confira e tente de novo.','ambos');
+   $('pass').select();
+   return;
+  }
+  localStorage.setItem(CHAVE,JSON.stringify({h,t:Date.now()}));
+  aviso.classList.add('ok'); aviso.textContent='Acesso liberado, abrindo...';
+  abrirApp();
+ }catch(err){
+  btn.disabled=false; btn.textContent='Entrar';
+  erro('Não deu pra validar o acesso agora. Recarregue a página e tente de novo.');
+ }
+});
+
+$('btn-sair').addEventListener('click',()=>{
+ if(!confirm('Sair do acesso? Você vai precisar do usuário e da senha pra entrar de novo.')) return;
+ localStorage.removeItem(CHAVE);
+ location.reload();
+});
+
+// Já entrou antes neste navegador? Vai direto.
+if(sessaoValida()){ abrirApp(); }
+else{ document.title='Entrar · Central de Raio-X'; $('user').focus(); }
 </script>
 </body></html>
